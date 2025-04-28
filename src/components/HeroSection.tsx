@@ -8,7 +8,7 @@ const HeroSection: React.FC = () => {
       id="hero" 
       className="min-h-screen pt-20 pb-10 flex flex-col justify-center relative overflow-hidden"
     >
-      {/* Rain drops animation (subtle background effect) */}
+      {/* Rain drops animation */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-20">
         {[...Array(20)].map((_, i) => (
           <div
@@ -24,7 +24,17 @@ const HeroSection: React.FC = () => {
       </div>
       
       <div className="max-container grid md:grid-cols-2 gap-8 items-center">
-        <div className="flex flex-col justify-center space-y-6 animate-fade-in">
+        <div className="relative order-1">
+          <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl">
+            <img 
+              src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" 
+              alt="Profile Photo" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+        
+        <div className="flex flex-col justify-center space-y-6 animate-fade-in order-2">
           <h2 className="text-lg font-medium text-rain">Hello, I am</h2>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
             <span className="block">Full Stack</span>
@@ -57,16 +67,6 @@ const HeroSection: React.FC = () => {
             <a href="#" className="text-foreground/70 hover:text-primary transition-colors" aria-label="LeetCode">
               <Code />
             </a>
-          </div>
-        </div>
-        
-        <div className="relative order-first md:order-last flex justify-center">
-          <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl">
-            <img 
-              src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" 
-              alt="Profile Photo" 
-              className="w-full h-full object-cover"
-            />
           </div>
         </div>
       </div>

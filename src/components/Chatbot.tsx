@@ -14,10 +14,7 @@ const Chatbot: React.FC = () => {
   const [showBooking, setShowBooking] = useState(false);
   
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsOpen(true);
-    }, 3000);
-    return () => clearTimeout(timer);
+    return;
   }, []);
   
   const handleSendMessage = () => {

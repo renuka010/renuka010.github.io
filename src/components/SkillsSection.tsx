@@ -5,7 +5,13 @@ const SkillsSection: React.FC = () => {
   const skillCategories = [
     {
       title: "Technical Skills",
-      skills: ["Python", "Generative AI & LLMs", "System Architecture", "Backend Development", "Data Structures & Algorithms", "SQL & Databases"]
+      skills: [
+        "Python", "TypeScript", "React", "Django", 
+        "FastAPI", "Node.js", "Docker", "Kubernetes",
+        "AWS", "PostgreSQL", "MongoDB", "Redis",
+        "GraphQL", "REST APIs", "System Design", "CI/CD",
+        "Git", "Linux", "Machine Learning", "Data Structures"
+      ]
     },
     {
       title: "Professional Skills",
@@ -28,18 +34,17 @@ const SkillsSection: React.FC = () => {
           {skillCategories.map((category, idx) => (
             <div key={idx} className="space-y-6">
               <h3 className="text-xl font-semibold mb-6 text-center">{category.title}</h3>
-              <div className="text-center">
+              <div className="text-center flex flex-wrap justify-center gap-4">
                 {category.skills.map((skill, index) => (
                   <span 
                     key={index} 
-                    className={`inline-block m-2 text-lg font-medium ${
+                    className={`text-lg font-medium ${
                       index % 3 === 0 ? 'text-primary' : 
                       index % 3 === 1 ? 'text-secondary' : 
                       'text-accent-foreground'
                     }`}
                   >
                     {skill}
-                    {index !== category.skills.length - 1 && <span className="mx-2">•</span>}
                   </span>
                 ))}
               </div>

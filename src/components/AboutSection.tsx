@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Trophy, Award, BookOpen, Coffee } from 'lucide-react';
+import { Trophy, Award, BookOpen, Coffee, Code } from 'lucide-react';
 
 const AboutSection: React.FC = () => {
   const achievements = [
@@ -9,6 +8,11 @@ const AboutSection: React.FC = () => {
       icon: <Trophy className="w-8 h-8 text-primary" />,
       title: "Top 50 Competitive Programmer",
       description: "Ranked in top 50 among 10,000+ participants"
+    },
+    {
+      icon: <Code className="w-8 h-8 text-primary" />,
+      title: "LeetCode Top 5% Coder",
+      description: "Ranked in the top 5% globally among LeetCode users"
     },
     {
       icon: <Award className="w-8 h-8 text-primary" />,
