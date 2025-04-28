@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Award, Briefcase, Book, Code } from 'lucide-react';
@@ -30,10 +29,10 @@ const AchievementCard: React.FC<{
 const AchievementsSection: React.FC = () => {
   const achievements = [
     {
-      icon: <Award />,
-      title: "Top 1% in National Coding Competition",
+      icon: <Code />,
+      title: "Top 5% LeetCode Competitor",
       date: "2023",
-      description: "Achieved a rank in the top 1% among 10,000+ participants in the national algorithm competition."
+      description: "Ranked in the top 5% globally with 500+ solved problems on LeetCode"
     },
     {
       icon: <Briefcase />,

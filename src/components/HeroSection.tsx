@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Github, Linkedin, Mail, Code } from 'lucide-react';
@@ -63,18 +62,11 @@ const HeroSection: React.FC = () => {
         
         <div className="relative order-first md:order-last flex justify-center">
           <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl">
-            {/* Replace with your actual profile picture */}
             <img 
               src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" 
               alt="Profile Photo" 
               className="w-full h-full object-cover"
             />
-          </div>
-          <div className="absolute -bottom-4 -right-4 bg-white rounded-lg shadow-lg p-3 glass-card">
-            <div className="flex items-center space-x-2">
-              <div className="h-3 w-3 rounded-full bg-green-500"></div>
-              <span className="text-sm font-medium">Available for hire</span>
-            </div>
           </div>
         </div>
       </div>

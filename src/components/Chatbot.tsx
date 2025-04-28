@@ -8,7 +8,7 @@ import { toast } from '@/components/ui/use-toast';
 const Chatbot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<{ text: string; sender: 'user' | 'bot' }[]>([
-    { text: "Hi there! I'm the virtual assistant for CodeCoffeeRain. How can I help you today?", sender: 'bot' }
+    { text: "Hi! Want to know more about my journey from banking to tech?", sender: 'bot' }
   ]);
   const [input, setInput] = useState('');
   const [showBooking, setShowBooking] = useState(false);
@@ -23,14 +23,11 @@ const Chatbot: React.FC = () => {
   const handleSendMessage = () => {
     if (!input.trim()) return;
     
-    // Add user message
     const userMessage = { text: input, sender: 'user' as const };
     setMessages((prev) => [...prev, userMessage]);
     
-    // Reset input
     setInput('');
     
-    // Process the message and prepare a response
     setTimeout(() => {
       let botResponse;
       
@@ -91,13 +88,11 @@ const Chatbot: React.FC = () => {
   };
   
   const handleBookMeeting = () => {
-    // In a real app, this would open a calendar integration
     toast({
       title: "Meeting Request Sent",
       description: "Thanks for your interest! I'll get back to you soon to confirm the meeting time.",
     });
     
-    // Add confirmation message to chat
     setMessages((prev) => [
       ...prev, 
       { 
@@ -106,13 +101,11 @@ const Chatbot: React.FC = () => {
       }
     ]);
     
-    // Hide booking interface
     setShowBooking(false);
   };
 
   return (
     <>
-      {/* Chatbot trigger button */}
       <button
         id="chatbot-trigger"
         className="fixed bottom-5 right-5 h-14 w-14 bg-primary rounded-full flex items-center justify-center shadow-lg hover:bg-primary/90 transition-colors z-50"
@@ -121,10 +114,8 @@ const Chatbot: React.FC = () => {
         <Bot className="text-white h-6 w-6" />
       </button>
       
-      {/* Chatbot window */}
       {isOpen && (
         <Card className="fixed bottom-5 right-5 w-80 sm:w-96 h-[500px] shadow-lg z-50 flex flex-col">
-          {/* Chatbot header */}
           <div className="flex items-center justify-between p-4 border-b">
             <div className="flex items-center">
               <div className="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center mr-3">
@@ -140,7 +131,6 @@ const Chatbot: React.FC = () => {
             </Button>
           </div>
           
-          {/* Chatbot messages */}
           <div className="flex-1 p-4 overflow-y-auto flex flex-col gap-3">
             {messages.map((message, index) => (
               <div 
@@ -155,7 +145,6 @@ const Chatbot: React.FC = () => {
               </div>
             ))}
             
-            {/* Meeting booking interface */}
             {showBooking && (
               <div className="bg-white p-4 rounded-lg border mt-2">
                 <h4 className="font-medium flex items-center gap-2">
@@ -178,7 +167,6 @@ const Chatbot: React.FC = () => {
             )}
           </div>
           
-          {/* Chatbot input */}
           <div className="p-3 border-t flex gap-2">
             <Input 
               placeholder="Type a message..." 

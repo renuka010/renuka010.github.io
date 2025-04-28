@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { Card, CardContent } from '@/components/ui/card';
 
 const SkillsSection: React.FC = () => {
   const skillCategories = [
@@ -25,17 +24,23 @@ const SkillsSection: React.FC = () => {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+        <div className="flex flex-col gap-16 max-w-4xl mx-auto">
           {skillCategories.map((category, idx) => (
             <div key={idx} className="space-y-6">
               <h3 className="text-xl font-semibold mb-6 text-center">{category.title}</h3>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="text-center">
                 {category.skills.map((skill, index) => (
-                  <Card key={index} className="hover:shadow-md transition-all hover:scale-105">
-                    <CardContent className="p-4 text-center">
-                      <span className="font-medium">{skill}</span>
-                    </CardContent>
-                  </Card>
+                  <span 
+                    key={index} 
+                    className={`inline-block m-2 text-lg font-medium ${
+                      index % 3 === 0 ? 'text-primary' : 
+                      index % 3 === 1 ? 'text-secondary' : 
+                      'text-accent-foreground'
+                    }`}
+                  >
+                    {skill}
+                    {index !== category.skills.length - 1 && <span className="mx-2">•</span>}
+                  </span>
                 ))}
               </div>
             </div>
