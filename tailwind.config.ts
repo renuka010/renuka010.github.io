@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -52,15 +53,20 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
+				// Custom colors
+				rain: {
+					light: '#E0F2FE',
+					DEFAULT: '#7AB8E8',
+					dark: '#306998' 
+				},
+				coffee: {
+					light: '#D4A76A',
+					DEFAULT: '#9C6F44',
+					dark: '#634932'
+				},
+				code: {
+					DEFAULT: '#292D3E',
+					text: '#A6ACCD'
 				}
 			},
 			borderRadius: {
@@ -84,11 +90,29 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'rain': {
+					'0%': { transform: 'translateY(-100%)' },
+					'100%': { transform: 'translateY(1000%)' }
+				},
+				'fade-in': {
+					'0%': { opacity: '0', transform: 'translateY(10px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' }
+				},
+				'pulse-soft': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.7' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'rain-drop': 'rain 7s linear infinite',
+				'fade-in': 'fade-in 0.5s ease-out',
+				'pulse-soft': 'pulse-soft 3s ease-in-out infinite'
+			},
+			backgroundImage: {
+				'rain-pattern': 'url("/rain-pattern.svg")',
 			}
 		}
 	},
