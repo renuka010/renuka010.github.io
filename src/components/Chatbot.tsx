@@ -1,9 +1,8 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import { MessageSquare, Send, Calendar, X } from 'lucide-react';
+import { Bot, Send, Calendar, X } from 'lucide-react';
 import { toast } from '@/components/ui/use-toast';
 
 const Chatbot: React.FC = () => {
@@ -13,6 +12,13 @@ const Chatbot: React.FC = () => {
   ]);
   const [input, setInput] = useState('');
   const [showBooking, setShowBooking] = useState(false);
+  
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsOpen(true);
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
   
   const handleSendMessage = () => {
     if (!input.trim()) return;
@@ -112,7 +118,7 @@ const Chatbot: React.FC = () => {
         className="fixed bottom-5 right-5 h-14 w-14 bg-primary rounded-full flex items-center justify-center shadow-lg hover:bg-primary/90 transition-colors z-50"
         onClick={() => setIsOpen(true)}
       >
-        <MessageSquare className="text-white" />
+        <Bot className="text-white h-6 w-6" />
       </button>
       
       {/* Chatbot window */}
@@ -122,7 +128,7 @@ const Chatbot: React.FC = () => {
           <div className="flex items-center justify-between p-4 border-b">
             <div className="flex items-center">
               <div className="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center mr-3">
-                <MessageSquare className="h-5 w-5 text-primary" />
+                <Bot className="h-5 w-5 text-primary" />
               </div>
               <div>
                 <h3 className="font-medium">CodeCoffeeRain Assistant</h3>
