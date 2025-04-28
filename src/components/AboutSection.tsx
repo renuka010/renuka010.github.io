@@ -1,8 +1,27 @@
 
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
+import { Trophy, Award, BookOpen, Coffee } from 'lucide-react';
 
 const AboutSection: React.FC = () => {
+  const achievements = [
+    {
+      icon: <Trophy className="w-8 h-8 text-primary" />,
+      title: "Top 50 Competitive Programmer",
+      description: "Ranked in top 50 among 10,000+ participants"
+    },
+    {
+      icon: <Award className="w-8 h-8 text-primary" />,
+      title: "Rising Star Award",
+      description: "Recognition for exceptional performance and innovation"
+    },
+    {
+      icon: <BookOpen className="w-8 h-8 text-primary" />,
+      title: "AWS Certified Solutions Architect",
+      description: "Professional certification for cloud architecture"
+    }
+  ];
+
   return (
     <section id="about" className="py-20 bg-secondary/30 relative">
       <div className="max-container">
@@ -35,34 +54,18 @@ const AboutSection: React.FC = () => {
             </p>
           </div>
           
-          <div className="order-1 md:order-2 grid grid-cols-2 gap-4">
-            <Card className="glass-card p-5 text-center">
-              <CardContent className="p-0">
-                <h3 className="text-4xl font-bold text-coffee mb-2">6+</h3>
-                <p>Years in Banking</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="glass-card p-5 text-center">
-              <CardContent className="p-0">
-                <h3 className="text-4xl font-bold text-primary mb-2">3+</h3>
-                <p>Years Coding</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="glass-card p-5 text-center">
-              <CardContent className="p-0">
-                <h3 className="text-4xl font-bold text-rain mb-2">500+</h3>
-                <p>Coding Problems</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="glass-card p-5 text-center">
-              <CardContent className="p-0">
-                <h3 className="text-4xl font-bold text-accent mb-2">10+</h3>
-                <p>AI Projects</p>
-              </CardContent>
-            </Card>
+          <div className="order-1 md:order-2 space-y-4">
+            {achievements.map((achievement, index) => (
+              <Card key={index} className="glass-card transition-transform hover:scale-105">
+                <CardContent className="p-6 flex items-center gap-4">
+                  {achievement.icon}
+                  <div>
+                    <h3 className="font-semibold text-lg">{achievement.title}</h3>
+                    <p className="text-muted-foreground">{achievement.description}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </div>

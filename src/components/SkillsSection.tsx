@@ -1,24 +1,17 @@
 
 import React from 'react';
-import { Progress } from '@/components/ui/progress';
+import { Card, CardContent } from '@/components/ui/card';
 
 const SkillsSection: React.FC = () => {
-  const technicalSkills = [
-    { name: 'Python', level: 95 },
-    { name: 'Generative AI & LLMs', level: 90 },
-    { name: 'System Architecture', level: 85 },
-    { name: 'Backend Development', level: 88 },
-    { name: 'Data Structures & Algorithms', level: 92 },
-    { name: 'SQL & Databases', level: 80 },
-  ];
-  
-  const otherSkills = [
-    { name: 'Problem Solving', level: 95 },
-    { name: 'Financial Analysis', level: 90 },
-    { name: 'Project Management', level: 82 },
-    { name: 'Agile Methodologies', level: 78 },
-    { name: 'Communication', level: 85 },
-    { name: 'Teamwork', level: 88 },
+  const skillCategories = [
+    {
+      title: "Technical Skills",
+      skills: ["Python", "Generative AI & LLMs", "System Architecture", "Backend Development", "Data Structures & Algorithms", "SQL & Databases"]
+    },
+    {
+      title: "Professional Skills",
+      skills: ["Problem Solving", "Financial Analysis", "Project Management", "Agile Methodologies", "Communication", "Teamwork"]
+    }
   ];
 
   return (
@@ -32,36 +25,21 @@ const SkillsSection: React.FC = () => {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 gap-10">
-          <div className="space-y-8">
-            <h3 className="text-xl font-semibold mb-6 border-l-4 border-primary pl-3">Technical Skills</h3>
-            <div className="space-y-6">
-              {technicalSkills.map((skill) => (
-                <div key={skill.name}>
-                  <div className="flex justify-between mb-2">
-                    <span className="font-medium">{skill.name}</span>
-                    <span className="text-muted-foreground">{skill.level}%</span>
-                  </div>
-                  <Progress value={skill.level} className="h-2" />
-                </div>
-              ))}
+        <div className="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+          {skillCategories.map((category, idx) => (
+            <div key={idx} className="space-y-6">
+              <h3 className="text-xl font-semibold mb-6 text-center">{category.title}</h3>
+              <div className="grid grid-cols-2 gap-4">
+                {category.skills.map((skill, index) => (
+                  <Card key={index} className="hover:shadow-md transition-all hover:scale-105">
+                    <CardContent className="p-4 text-center">
+                      <span className="font-medium">{skill}</span>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
             </div>
-          </div>
-          
-          <div className="space-y-8">
-            <h3 className="text-xl font-semibold mb-6 border-l-4 border-coffee pl-3">Professional Skills</h3>
-            <div className="space-y-6">
-              {otherSkills.map((skill) => (
-                <div key={skill.name}>
-                  <div className="flex justify-between mb-2">
-                    <span className="font-medium">{skill.name}</span>
-                    <span className="text-muted-foreground">{skill.level}%</span>
-                  </div>
-                  <Progress value={skill.level} className="h-2" indicatorClassName="bg-coffee" />
-                </div>
-              ))}
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

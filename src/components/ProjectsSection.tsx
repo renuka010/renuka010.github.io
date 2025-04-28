@@ -4,6 +4,13 @@ import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Github, ExternalLink } from 'lucide-react';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const ProjectsSection: React.FC = () => {
   const projects = [
@@ -52,45 +59,59 @@ const ProjectsSection: React.FC = () => {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
-            <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col h-full">
-              <div className="h-48 relative overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                />
-              </div>
-              
-              <CardContent className="flex-grow p-6">
-                <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                <p className="text-muted-foreground mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag, i) => (
-                    <Badge key={i} variant="outline" className="bg-background/50">{tag}</Badge>
-                  ))}
-                </div>
-              </CardContent>
-              
-              <CardFooter className="border-t p-4">
-                <div className="flex justify-between w-full">
-                  <Button variant="outline" size="sm" className="flex items-center gap-2" asChild>
-                    <a href={project.githubLink}>
-                      <Github size={16} />
-                      Code
-                    </a>
-                  </Button>
-                  <Button variant="default" size="sm" className="flex items-center gap-2" asChild>
-                    <a href={project.liveLink}>
-                      <ExternalLink size={16} />
-                      Demo
-                    </a>
-                  </Button>
-                </div>
-              </CardFooter>
-            </Card>
-          ))}
+        <div className="relative px-12">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent>
+              {projects.map((project, index) => (
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                  <Card className="h-full hover:shadow-lg transition-shadow duration-300">
+                    <div className="h-40 relative overflow-hidden">
+                      <img 
+                        src={project.image} 
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                      />
+                    </div>
+                    
+                    <CardContent className="p-4">
+                      <h3 className="font-semibold mb-2">{project.title}</h3>
+                      <p className="text-sm text-muted-foreground mb-3">{project.description}</p>
+                      <div className="flex flex-wrap gap-1">
+                        {project.tags.map((tag, i) => (
+                          <Badge key={i} variant="outline" className="text-xs">{tag}</Badge>
+                        ))}
+                      </div>
+                    </CardContent>
+                    
+                    <CardFooter className="border-t p-4">
+                      <div className="flex justify-between w-full">
+                        <Button variant="outline" size="sm" className="flex items-center gap-2" asChild>
+                          <a href={project.githubLink}>
+                            <Github className="w-4 h-4" />
+                            Code
+                          </a>
+                        </Button>
+                        <Button variant="default" size="sm" className="flex items-center gap-2" asChild>
+                          <a href={project.liveLink}>
+                            <ExternalLink className="w-4 h-4" />
+                            Demo
+                          </a>
+                        </Button>
+                      </div>
+                    </CardFooter>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
         </div>
       </div>
     </section>
