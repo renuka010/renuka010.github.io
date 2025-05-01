@@ -8,31 +8,6 @@ const HeroSection: React.FC = () => {
       id="hero" 
       className="min-h-screen pt-20 pb-10 flex flex-col justify-center relative overflow-hidden"
     >
-      {/* AI Circuit Watermark */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-5">
-        <svg
-          width="100%"
-          height="100%"
-          viewBox="0 0 100 100"
-          preserveAspectRatio="xMidYMid slice"
-          className="absolute w-full h-full"
-        >
-          <defs>
-            <pattern id="ai-grid" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-              <path
-                d="M 10 0 L 20 10 L 10 20 L 0 10 Z M 10 8 L 12 10 L 10 12 L 8 10 Z"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="0.5"
-                className="text-primary"
-              />
-              <circle cx="10" cy="10" r="2" fill="currentColor" className="text-primary" />
-            </pattern>
-          </defs>
-          <rect x="0" y="0" width="100%" height="100%" fill="url(#ai-grid)" />
-        </svg>
-      </div>
-
       {/* Rain drops animation */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-20">
         {[...Array(20)].map((_, i) => (
