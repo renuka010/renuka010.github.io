@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -8,13 +7,40 @@ import { toast } from '@/components/ui/use-toast';
 import { Github, Linkedin, Mail, Code, Calendar, MessageSquare } from 'lucide-react';
 
 const ContactSection: React.FC = () => {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // In a real app, you'd handle the form submission here
-    toast({
-      title: "Message sent!",
-      description: "Thanks for reaching out. I'll get back to you soon.",
-    });
+    setIsSubmitting(true);
+
+    try {
+      const formData = new FormData(e.currentTarget);
+      const response = await fetch('https://formspree.io/f/xovdjoog', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Message sent successfully!",
+          description: "Thanks for reaching out. I'll get back to you soon.",
+        });
+        (e.target as HTMLFormElement).reset();
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      toast({
+        title: "Error sending message",
+        description: "Please try again later or contact me through other means.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -33,61 +59,25 @@ const ContactSection: React.FC = () => {
             <Card className="p-6 bg-white">
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <Input placeholder="Your Name" required />
+                  <Input name="name" placeholder="Your Name" required />
                 </div>
                 <div>
-                  <Input type="email" placeholder="Your Email" required />
+                  <Input type="email" name="_replyto" placeholder="Your Email" required />
                 </div>
                 <div>
-                  <Input placeholder="Subject" />
+                  <Input name="subject" placeholder="Subject" required />
                 </div>
                 <div>
-                  <Textarea placeholder="Your Message" rows={5} required />
+                  <Textarea name="message" placeholder="Your Message" rows={5} required />
                 </div>
-                <Button type="submit" className="w-full">Send Message</Button>
+                <Button type="submit" className="w-full" disabled={isSubmitting}>
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                </Button>
               </form>
             </Card>
           </div>
           
           <div className="space-y-6">
-            <div className="grid grid-cols-2 gap-4">
-              <Card className="p-6 flex flex-col items-center justify-center text-center hover:shadow-md transition-shadow">
-                <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-3">
-                  <Linkedin className="text-primary" />
-                </div>
-                <h3 className="font-medium">LinkedIn</h3>
-                <p className="text-sm text-muted-foreground mt-1">Let's connect professionally</p>
-                <a href="#" className="text-primary text-sm mt-2 hover:underline">View Profile</a>
-              </Card>
-              
-              <Card className="p-6 flex flex-col items-center justify-center text-center hover:shadow-md transition-shadow">
-                <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-3">
-                  <Github className="text-primary" />
-                </div>
-                <h3 className="font-medium">GitHub</h3>
-                <p className="text-sm text-muted-foreground mt-1">Check out my code</p>
-                <a href="#" className="text-primary text-sm mt-2 hover:underline">View Profile</a>
-              </Card>
-              
-              <Card className="p-6 flex flex-col items-center justify-center text-center hover:shadow-md transition-shadow">
-                <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-3">
-                  <Mail className="text-primary" />
-                </div>
-                <h3 className="font-medium">Email</h3>
-                <p className="text-sm text-muted-foreground mt-1">Send me an email</p>
-                <a href="mailto:hello@example.com" className="text-primary text-sm mt-2 hover:underline">hello@example.com</a>
-              </Card>
-              
-              <Card className="p-6 flex flex-col items-center justify-center text-center hover:shadow-md transition-shadow">
-                <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-3">
-                  <Code className="text-primary" />
-                </div>
-                <h3 className="font-medium">LeetCode</h3>
-                <p className="text-sm text-muted-foreground mt-1">View my coding skills</p>
-                <a href="#" className="text-primary text-sm mt-2 hover:underline">View Profile</a>
-              </Card>
-            </div>
-            
             <Card className="p-6 bg-white flex space-x-4">
               <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                 <Calendar className="text-primary" />
@@ -107,6 +97,38 @@ const ContactSection: React.FC = () => {
               </div>
             </Card>
           </div>
+        </div>
+        <div className="flex justify-center gap-8 mt-6">
+          <a 
+            href="https://github.com/renuka-fernando" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="h-16 w-16 rounded-full bg-zinc-100 flex items-center justify-center hover:bg-zinc-200 transition-colors group"
+          >
+            <Github className="h-10 w-10 text-zinc-700 group-hover:text-zinc-900 transition-colors" />
+          </a>
+          <a 
+            href="https://www.linkedin.com/in/renuka-fernando" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="h-16 w-16 rounded-full bg-blue-50 flex items-center justify-center hover:bg-blue-100 transition-colors group"
+          >
+            <Linkedin className="h-10 w-10 text-blue-600 group-hover:text-blue-700 transition-colors" />
+          </a>
+          <a 
+            href="mailto:renuka.1.bhaskaran@gmail.com"
+            className="h-16 w-16 rounded-full bg-red-50 flex items-center justify-center hover:bg-red-100 transition-colors group"
+          >
+            <Mail className="h-10 w-10 text-red-600 group-hover:text-red-700 transition-colors" />
+          </a>
+          <a 
+            href="https://leetcode.com/renuka-fernando" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="h-16 w-16 rounded-full bg-orange-50 flex items-center justify-center hover:bg-orange-100 transition-colors group"
+          >
+            <Code className="h-10 w-10 text-orange-600 group-hover:text-orange-700 transition-colors" />
+          </a>
         </div>
       </div>
     </section>

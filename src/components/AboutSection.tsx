@@ -5,24 +5,24 @@ import { Trophy, Award, BookOpen, Coffee, Code } from 'lucide-react';
 const AboutSection: React.FC = () => {
   const achievements = [
     {
-      icon: <Trophy className="w-8 h-8 text-primary" />,
-      title: "Top 50 Competitive Programmer",
-      description: "Ranked in top 50 among 10,000+ participants"
-    },
-    {
-      icon: <Code className="w-8 h-8 text-primary" />,
-      title: "LeetCode Top 5% Coder",
-      description: "Ranked in the top 5% globally among LeetCode users"
-    },
-    {
       icon: <Award className="w-8 h-8 text-primary" />,
+      title: "AWS Certified Gen AI Practitioner",
+      description: "Professional certification in Generative AI from Amazon Web Services"
+    },
+    {
+      icon: <Trophy className="w-8 h-8 text-primary" />,
       title: "Rising Star Award",
       description: "Recognition for exceptional performance and innovation"
     },
     {
-      icon: <BookOpen className="w-8 h-8 text-primary" />,
-      title: "AWS Certified Solutions Architect",
-      description: "Professional certification for cloud architecture"
+      icon: <Code className="w-8 h-8 text-primary" />,
+      title: "LeetCode Knight Badge",
+      description: "Top 5% globally among LeetCode users"
+    },
+    {
+      icon: <Award className="w-8 h-8 text-primary" />,
+      title: "Indeed Women Coders",
+      description: "Ranked in top 50 in India among women coders"
     }
   ];
 
@@ -37,24 +37,27 @@ const AboutSection: React.FC = () => {
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div className="order-2 md:order-1">
             <p className="text-lg mb-4 leading-relaxed">
-              I am a Python developer with a unique background that combines <span className="text-primary font-medium">6 years in banking</span> with a 
-              passion for technology and problem-solving.
+              I'm a Python developer specializing in <span className="text-primary font-medium">generative AI</span> and <span className="text-primary font-medium">agentic systems</span>. 
+              Throughout my career, I've worn multiple hats—managing projects, mentoring teams, 
+              and diving deep into code implementation. My approach combines technical expertise 
+              with a passion for understanding systems at their fundamental level.
             </p>
             
             <p className="text-lg mb-4 leading-relaxed">
-              My journey from finance to code has given me a distinctive perspective on building systems that are not only 
-              technically sound but also address real business needs.
+              My software journey began in <span className="text-primary font-medium">open source</span>, which instilled in me the values of 
+              collaboration and building for community benefit. Before transitioning to tech, 
+              I worked as a banker, giving me a unique perspective on how technology can transform 
+              traditional industries.
             </p>
             
             <p className="text-lg mb-4 leading-relaxed">
-              Currently, I'm focused on <span className="text-primary font-medium">generative AI</span>, building agentic systems that push the boundaries 
-              of what's possible. I have a deep interest in system architecture for AI solutions, ensuring scalability, 
-              reliability, and ethical implementation.
+              Currently, I'm focused on building agentic systems and 
+              automations that push the boundaries of what's possible.
             </p>
             
             <p className="text-lg leading-relaxed">
-              When I'm not coding, you'll find me solving competitive programming problems, enjoying a good fictional book, 
-              or savoring a cup of coffee while listening to the rain.
+              If any of this clicks with what you’re building or thinking about—
+              <span className="text-primary font-medium">I'd welcome the opportunity to connect</span>.
             </p>
           </div>
           

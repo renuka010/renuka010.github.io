@@ -1,37 +1,36 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 0%;
+    --background: 44 41% 92%; /* #F4F1DE */
+    --foreground: 0 0% 10%; /* dark for contrast */
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 0%;
+    --card: 44 41% 92%; /* #F4F1DE */
+    --card-foreground: 0 0% 10%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 0%;
+    --popover: 44 41% 92%;
+    --popover-foreground: 0 0% 10%;
 
-    --primary: 203 24% 25%;
+    --primary: 14 69% 62%; /* #E07A5F */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 197 12% 44%;
+    --secondary: 231 18% 25%; /* #3D405B */
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 180 24% 87%;
-    --muted-foreground: 203 24% 25%;
+    --muted: 156 25% 62%; /* #81B29A */
+    --muted-foreground: 0 0% 10%;
 
-    --accent: 180 24% 87%;
-    --accent-foreground: 203 24% 25%;
+    --accent: 40 77% 76%; /* #F2CC8F */
+    --accent-foreground: 0 0% 10%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 203 24% 25%;
-    --input: 203 24% 25%;
-    --ring: 203 24% 25%;
+    --border: 231 18% 25%; /* #3D405B */
+    --input: 231 18% 25%;
+    --ring: 231 18% 25%;
 
     --radius: 0.5rem;
   }
@@ -73,5 +72,19 @@
   
   .glass-card {
     @apply bg-white/70 backdrop-blur-sm border border-white/20 rounded-lg shadow-lg;
+  }
+
+  .font-pacifico {
+    font-family: 'Pacifico', cursive;
+  }
+
+  .font-dancing {
+    font-family: 'Dancing Script', cursive;
+  }
+
+  .font-quicksand {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.01em;
   }
 }

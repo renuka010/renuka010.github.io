@@ -8,6 +8,31 @@ const HeroSection: React.FC = () => {
       id="hero" 
       className="min-h-screen pt-20 pb-10 flex flex-col justify-center relative overflow-hidden"
     >
+      {/* AI Circuit Watermark */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-5">
+        <svg
+          width="100%"
+          height="100%"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="xMidYMid slice"
+          className="absolute w-full h-full"
+        >
+          <defs>
+            <pattern id="ai-grid" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+              <path
+                d="M 10 0 L 20 10 L 10 20 L 0 10 Z M 10 8 L 12 10 L 10 12 L 8 10 Z"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="0.5"
+                className="text-primary"
+              />
+              <circle cx="10" cy="10" r="2" fill="currentColor" className="text-primary" />
+            </pattern>
+          </defs>
+          <rect x="0" y="0" width="100%" height="100%" fill="url(#ai-grid)" />
+        </svg>
+      </div>
+
       {/* Rain drops animation */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-20">
         {[...Array(20)].map((_, i) => (
@@ -24,25 +49,25 @@ const HeroSection: React.FC = () => {
       </div>
       
       <div className="max-container grid md:grid-cols-2 gap-8 items-center">
-        <div className="relative order-1">
+        <div className="relative order-1 mt-16">
           <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl">
             <img 
-              src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" 
+              src="/Profile.jpg"
               alt="Profile Photo" 
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-top"
             />
           </div>
         </div>
         
         <div className="flex flex-col justify-center space-y-6 animate-fade-in order-2">
-          <h2 className="text-lg font-medium text-rain">Hello, I am</h2>
+          <h2 className="text-lg font-medium text-rain"></h2>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
-            <span className="block">Full Stack</span>
+            <span className="block font-quicksand">Hi! I am Renuka</span>
             <span className="text-primary">Python Developer</span>
           </h1>
           <p className="text-lg text-foreground/80 max-w-md">
-            From banking to building agentic systems. I blend the analytical mindset of finance 
-            with the creativity of coding to solve complex problems.
+            I craft intelligent applications with clean, maintainable code.
+            Exploring AI, automation, and scalable backend systems.
           </p>
           
           <div className="flex space-x-4 pt-2">
@@ -55,16 +80,20 @@ const HeroSection: React.FC = () => {
           </div>
           
           <div className="flex items-center space-x-4 pt-2">
-            <a href="#" className="text-foreground/70 hover:text-primary transition-colors" aria-label="GitHub">
+            <a href="https://github.com/renuka010" className="text-foreground/70 hover:text-primary transition-colors" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
               <Github />
             </a>
-            <a href="#" className="text-foreground/70 hover:text-primary transition-colors" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/renuka-bhaskaran-451680227/" className="text-foreground/70 hover:text-primary transition-colors" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
               <Linkedin />
             </a>
-            <a href="#" className="text-foreground/70 hover:text-primary transition-colors" aria-label="Email">
+            <button 
+              onClick={() => window.open('mailto:renuka.1.bhaskaran@gmail.com')}
+              className="text-foreground/70 hover:text-primary transition-colors"
+              aria-label="Email"
+            >
               <Mail />
-            </a>
-            <a href="#" className="text-foreground/70 hover:text-primary transition-colors" aria-label="LeetCode">
+            </button>
+            <a href="https://leetcode.com/u/Renuka_B/" className="text-foreground/70 hover:text-primary transition-colors" aria-label="LeetCode" target="_blank" rel="noopener noreferrer">
               <Code />
             </a>
           </div>

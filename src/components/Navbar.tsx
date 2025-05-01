@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 
@@ -18,22 +17,22 @@ const Navbar: React.FC = () => {
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-white/80 backdrop-blur-md shadow-sm py-3' 
-          : 'bg-transparent py-5'
+          ? 'bg-white/80 backdrop-blur-md shadow-sm py-2' 
+          : 'bg-transparent py-3'
       }`}
     >
       <div className="max-container flex items-center justify-between">
         <a href="#hero" className="text-2xl font-bold text-primary">
-          Code<span className="text-coffee">Coffee</span><span className="text-rain">Rain</span>
+          <span className="font-dancing" style={{ fontSize: '2.25em' }}>Renuka's</span><span className="text-coffee align-middle" style={{ marginLeft: '0.2em' }}><img src="/space.png" alt="space bar" style={{ display: 'inline-block', height: '4.5em', width: 'auto', verticalAlign: 'baseline', margin: '0' }} /></span><span className="text-rain"></span>
         </a>
         
         <nav className="hidden md:block">
           <ul className="flex space-x-8">
-            {['About', 'Skills', 'Projects', 'Achievements', 'Contact'].map((item) => (
+            {['About', 'Skills', 'Projects', 'Contact'].map((item) => (
               <li key={item}>
                 <a 
                   href={`#${item.toLowerCase()}`} 
-                  className="text-foreground/70 hover:text-primary transition-colors"
+                  className="text-2xl text-foreground/70 hover:text-primary transition-colors"
                 >
                   {item}
                 </a>
@@ -52,13 +51,13 @@ const Navbar: React.FC = () => {
         </Button>
       </div>
       
-      <div id="mobile-menu" className="hidden md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md shadow-md py-3">
-        <ul className="flex flex-col items-center space-y-3">
-          {['About', 'Skills', 'Projects', 'Achievements', 'Contact'].map((item) => (
-            <li key={item} className="w-full">
+      <div id="mobile-menu" className="hidden md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md shadow-md py-2">
+        <ul className="flex flex-col items-center space-y-2">
+          {['About', 'Skills', 'Projects', 'Contact'].map((item) => (
+            <li key={item}>
               <a 
                 href={`#${item.toLowerCase()}`} 
-                className="block w-full text-center py-2 text-foreground/70 hover:text-primary hover:bg-secondary/50 transition-colors"
+                className="block w-full text-center py-1.5 text-2xl text-foreground/70 hover:text-primary hover:bg-secondary/50 transition-colors"
                 onClick={() => document.getElementById('mobile-menu')?.classList.add('hidden')}
               >
                 {item}

@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const SkillsSection: React.FC = () => {
@@ -6,16 +5,15 @@ const SkillsSection: React.FC = () => {
     {
       title: "Technical Skills",
       skills: [
-        "Python", "TypeScript", "React", "Django", 
-        "FastAPI", "Node.js", "Docker", "Kubernetes",
-        "AWS", "PostgreSQL", "MongoDB", "Redis",
-        "GraphQL", "REST APIs", "System Design", "CI/CD",
-        "Git", "Linux", "Machine Learning", "Data Structures"
+        "Python", "Java", "FastAPI", "REST", "MCP", "LangChain", "Docker", "Streamlit", "NLTK", "Spacy",
+        "Transformer Models", "Sentence Embeddings", "Fine-tuning", "OpenAI", "Gemini", "Mistral", "RAG", "Ollama",
+        "AWS", "AWS Bedrock", "Google Big Query", "Google Looker Studio",
+        "Redis", "Marqo", "FAISS", "Chroma DB", "Vector Databases", "PostgreSQL", "DataStructures & Algorithms"
       ]
     },
     {
       title: "Professional Skills",
-      skills: ["Problem Solving", "Financial Analysis", "Project Management", "Agile Methodologies", "Communication", "Teamwork"]
+      skills: ["Problem Solving", "Project Management", "Agile Methodologies", "Communication", "Mentorship"]
     }
   ];
 
@@ -33,15 +31,15 @@ const SkillsSection: React.FC = () => {
         <div className="flex flex-col gap-16 max-w-4xl mx-auto">
           {skillCategories.map((category, idx) => (
             <div key={idx} className="space-y-6">
-              <h3 className="text-xl font-semibold mb-6 text-center">{category.title}</h3>
+              <h3 className="text-xl font-semibold mb-6 text-center underline decoration-primary underline-offset-4">{category.title}</h3>
               <div className="text-center flex flex-wrap justify-center gap-4">
                 {category.skills.map((skill, index) => (
                   <span 
                     key={index} 
                     className={`text-lg font-medium ${
                       index % 3 === 0 ? 'text-primary' : 
-                      index % 3 === 1 ? 'text-secondary' : 
-                      'text-accent-foreground'
+                      index % 3 === 1 ? 'text-muted' : 
+                      'text-secondary'
                     }`}
                   >
                     {skill}

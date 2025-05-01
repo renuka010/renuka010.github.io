@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -15,36 +14,60 @@ import {
 const ProjectsSection: React.FC = () => {
   const projects = [
     {
-      title: 'Agentic AI Assistant',
-      description: 'An autonomous AI system that can plan, reason, and execute tasks without human intervention.',
-      image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80',
-      tags: ['Python', 'LangChain', 'OpenAI', 'Vector DBs'],
-      githubLink: '#',
-      liveLink: '#',
+      title: 'EvaloAI Assistant',
+      description: 'Interview AI Agents\'s Backend API collection.',
+      image: 'public//evalo.png',
+      tags: ['Python', 'FastAPI', 'Langchain', 'Gemini', 'Librosa', 'GoogleSpeechRecognition'],
+      githubLink: 'https://github.com/renukab01/evalo.ai-backend',
+      liveLink: 'https://evaloai-backend-production.up.railway.app/docs',
     },
     {
-      title: 'Financial Data Analyzer',
-      description: 'A tool that leverages my banking experience to provide intelligent financial insights.',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
-      tags: ['Python', 'Pandas', 'Plotly', 'Flask'],
-      githubLink: '#',
-      liveLink: '#',
+      title: 'RAG Q&A Chatbot',
+      description: 'An AI conversational bot with knowledge base.',
+      image: 'public//qna.jpg',
+      tags: ['Python', 'HuggingFace', 'Gemini', 'Chroma DB'],
+      githubLink: 'https://github.com/renuka010/RAG-QA-Geminipro',
+      liveLink: 'https://github.com/renuka010/RAG-QA-Geminipro',
     },
     {
-      title: 'Competitive Coding Platform',
-      description: 'A platform to practice algorithmic problems with automated testing and performance analysis.',
-      image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=80',
-      tags: ['Python', 'FastAPI', 'React', 'Docker'],
-      githubLink: '#',
-      liveLink: '#',
+      title: 'Mistral Telegram Bot',
+      description: 'A Conversation chatbot integrated with telegram.',
+      image: 'public//telegram.jpg',
+      tags: ['Python', 'Pydub', 'Mistral', 'GoogleSpeechRecognition'],
+      githubLink: 'https://github.com/renuka010/Mistral-Telegram-Bot',
+      liveLink: 'https://github.com/renuka010/Mistral-Telegram-Bot',
     },
     {
-      title: 'AI System Architecture',
-      description: 'Reference implementation for scalable, production-ready AI systems with proper monitoring.',
-      image: 'https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=800&q=80',
-      tags: ['Python', 'Kubernetes', 'Prometheus', 'MLflow'],
-      githubLink: '#',
-      liveLink: '#',
+      title: 'MindTranquil',
+      description: 'A personal meditation app for meditation and tracking habits.',
+      image: 'public//mind_tran.png',
+      tags: ['Python', 'Django', 'DRF', 'Celery', 'RabbitMQ', 'Tailwind', 'Javascript'],
+      githubLink: 'https://github.com/renuka010/MindTranquil',
+      liveLink: 'https://github.com/renuka010/MindTranquil/assets/72569696/502f31d5-7010-4698-a4bd-fc3584202689',
+    },
+    {
+      title: 'Vendor Management System',
+      description: 'REST API collection of Vendor Management System.',
+      image: 'public//vms.png',
+      tags: ['Python', 'Django', 'DRF', 'Postgres'],
+      githubLink: 'https://github.com/renuka010/vendorMS',
+      liveLink: 'https://github.com/renuka010/vendorMS',
+    },
+    {
+      title: 'Path Finding Algorithm Visualizer',
+      description: 'Dijkstra\'s and Astar Algorithm Visualizer.',
+      image: 'public//path.png',
+      tags: ['Python', 'Pygame'],
+      githubLink: 'https://github.com/renuka010/Path-Finding-Algorithm-Visualizer',
+      liveLink: 'https://github.com/renuka010/Path-Finding-Algorithm-Visualizer/assets/72569696/e53f03ee-5ec2-4574-8467-d58627bb354f',
+    },
+    {
+      title: 'Sorting Algorithm Visualizer',
+      description: 'Visualizer for  Insertion Sort, Bubble Sort, Merge Sort, Quick Sort and Heap Sort.',
+      image: 'public//sort.png',
+      tags: ['Python', 'Pygame'],
+      githubLink: 'https://github.com/renuka010/Sorting-Visualizer',
+      liveLink: 'https://github.com/renuka010/Sorting-Visualizer',
     },
   ];
 
@@ -70,7 +93,7 @@ const ProjectsSection: React.FC = () => {
             <CarouselContent>
               {projects.map((project, index) => (
                 <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                  <Card className="h-full hover:shadow-lg transition-shadow duration-300">
+                  <Card className="h-full hover:shadow-lg transition-shadow duration-300 flex flex-col">
                     <div className="h-40 relative overflow-hidden">
                       <img 
                         src={project.image} 
@@ -79,26 +102,26 @@ const ProjectsSection: React.FC = () => {
                       />
                     </div>
                     
-                    <CardContent className="p-4">
+                    <CardContent className="p-4 flex-grow flex flex-col">
                       <h3 className="font-semibold mb-2">{project.title}</h3>
-                      <p className="text-sm text-muted-foreground mb-3">{project.description}</p>
-                      <div className="flex flex-wrap gap-1">
+                      <p className="text-sm text-muted-foreground mb-3 min-h-[40px]">{project.description}</p>
+                      <div className="flex flex-wrap gap-1 mt-auto">
                         {project.tags.map((tag, i) => (
                           <Badge key={i} variant="outline" className="text-xs">{tag}</Badge>
                         ))}
                       </div>
                     </CardContent>
                     
-                    <CardFooter className="border-t p-4">
+                    <CardFooter className="border-t p-4 mt-auto">
                       <div className="flex justify-between w-full">
                         <Button variant="outline" size="sm" className="flex items-center gap-2" asChild>
-                          <a href={project.githubLink}>
+                          <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
                             <Github className="w-4 h-4" />
                             Code
                           </a>
                         </Button>
                         <Button variant="default" size="sm" className="flex items-center gap-2" asChild>
-                          <a href={project.liveLink}>
+                          <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
                             <ExternalLink className="w-4 h-4" />
                             Demo
                           </a>
