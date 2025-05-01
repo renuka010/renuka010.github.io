@@ -100,7 +100,7 @@ const ContactSection: React.FC = () => {
         </div>
         <div className="flex justify-center gap-8 mt-6">
           <a 
-            href="https://github.com/renuka-fernando" 
+            href="https://github.com/renuka010" 
             target="_blank" 
             rel="noopener noreferrer"
             className="h-16 w-16 rounded-full bg-zinc-100 flex items-center justify-center hover:bg-zinc-200 transition-colors group"
@@ -108,7 +108,7 @@ const ContactSection: React.FC = () => {
             <Github className="h-10 w-10 text-zinc-700 group-hover:text-zinc-900 transition-colors" />
           </a>
           <a 
-            href="https://www.linkedin.com/in/renuka-fernando" 
+            href="https://www.linkedin.com/in/renuka-bhaskaran-451680227/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="h-16 w-16 rounded-full bg-blue-50 flex items-center justify-center hover:bg-blue-100 transition-colors group"
@@ -122,7 +122,7 @@ const ContactSection: React.FC = () => {
             <Mail className="h-10 w-10 text-red-600 group-hover:text-red-700 transition-colors" />
           </a>
           <a 
-            href="https://leetcode.com/renuka-fernando" 
+            href="https://leetcode.com/u/Renuka_B/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="h-16 w-16 rounded-full bg-orange-50 flex items-center justify-center hover:bg-orange-100 transition-colors group"
